@@ -29,6 +29,7 @@ public class Television {
     private boolean hdr;
     private boolean bluetooth;
     private boolean ambiLight;
+    private int originalStock;
     private int sold;
 
 
@@ -94,11 +95,13 @@ public class Television {
     public boolean isAmbiLight() {
         return ambiLight;
     }
+    public int getOriginalStock() {
+            return originalStock;
+        }
 
     public int getSold() {
-        return sold;
-    }
-
+            return sold;
+        }
     //setters
 
     public void setId(Long id) {
@@ -160,8 +163,13 @@ public class Television {
     public void setAmbiLight(boolean ambiLight) {
         this.ambiLight = ambiLight;
     }
-
+    public void setOriginalStock(int originalStock) {
+        this.originalStock = originalStock;
+    }
     public void setSold(int sold) {
         this.sold = sold;
     }
+
+
 }
+

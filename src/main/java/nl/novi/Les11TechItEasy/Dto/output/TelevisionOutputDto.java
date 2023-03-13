@@ -12,12 +12,14 @@ public class TelevisionOutputDto {
     public String screenType;
     public String screenQuality;
     public boolean smartTv;
+
     public boolean wifi;
     public boolean voiceControl;
     public boolean hdr;
     public boolean bluetooth;
     public boolean ambiLight;
+    public int originalStock;
     public int sold;
 
 }
-}
+
