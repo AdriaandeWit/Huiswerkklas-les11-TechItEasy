@@ -21,5 +21,6 @@ public class TelevisionOutputDto {
     public int originalStock;
     public int sold;
 
-}
+    }
+
 

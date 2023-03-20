@@ -14,27 +14,27 @@ public class TelevisionDto {
     @Size(min = 3, max = 255)
     public String type;
     @NotNull
-    public double price;
+    public Double price;
 
-    public double availableSize;
+    public Double availableSize;
 
-    public double refreshRate;
+    public Double refreshRate;
 
     public String screenType;
 
     public String screenQuality;
 
-    public boolean smartTv;
+    public Boolean smartTv;
 
-    public boolean wifi;
+    public Boolean wifi;
 
-    public boolean voiceControl;
+    public Boolean voiceControl;
 
-    public boolean hdr;
+    public Boolean hdr;
 
-    public boolean bluetooth;
+    public Boolean bluetooth;
 
-    public boolean ambiLight;
+    public Boolean ambiLight;
 
     public int originalStock;
 

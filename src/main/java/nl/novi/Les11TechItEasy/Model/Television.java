@@ -1,9 +1,9 @@
 package nl.novi.Les11TechItEasy.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import nl.novi.Les11TechItEasy.Model.betweenTable.TelevisionsWallbracket;
+
+import java.util.List;
 
 @Entity
 @Table(name = "Television")
@@ -18,21 +18,36 @@ public class Television {
     private String name;
     private String brand;
     private String type;
-    private double price;
-    private double availableSize;
-    private double refreshRate;
+    private Double price;
+    private Double availableSize;
+    private Double refreshRate;
     private String screenType;
     private String screenQuality;
-    private boolean smartTv;
-    private boolean wifi;
-    private boolean voiceControl;
-    private boolean hdr;
-    private boolean bluetooth;
-    private boolean ambiLight;
+    private Boolean smartTv;
+    private Boolean wifi;
+    private Boolean voiceControl;
+    private Boolean hdr;
+    private Boolean bluetooth;
+    private Boolean ambiLight;
     private int originalStock;
     private int sold;
 
 
+    @OneToOne
+    private RemoteController remoteController ;
+
+    @ManyToMany
+    @JoinTable(name = "tussen_table",
+            joinColumns = @JoinColumn(name = "tv_id"),
+    inverseJoinColumns = @JoinColumn(name = "wb_id"))
+
+    private List <WallBracket>  wallBrackets;
+
+    @OneToMany(mappedBy = "television")
+    private List<TelevisionsWallbracket> televisionsWallbrackets;
+
+    @OneToOne
+    private CiModule ciModule;
     public Television() {
     }
 
@@ -102,6 +117,17 @@ public class Television {
     public int getSold() {
             return sold;
         }
+    public RemoteController getRemoteController() {
+        return remoteController;
+    }
+
+    public List<TelevisionsWallbracket> getTelevisionsWallbrackets() {
+        return televisionsWallbrackets;
+    }
+    public CiModule getCiModule() {
+        return ciModule;
+    }
+
     //setters
 
     public void setId(Long id) {
@@ -170,6 +196,16 @@ public class Television {
         this.sold = sold;
     }
 
+    public void setTelevisionsWallbrackets(List<TelevisionsWallbracket> televisionsWallbrackets) {
+        this.televisionsWallbrackets = televisionsWallbrackets;
+    }
 
+    public void setRemoteController(RemoteController remoteController) {
+        this.remoteController = remoteController;
+    }
+
+    public void setCiModule(CiModule ciModule) {
+        this.ciModule = ciModule;
+    }
 }
 
